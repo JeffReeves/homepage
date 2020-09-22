@@ -1,0 +1,8 @@
+body {
+    background-color: #000000;
+}
+
+div#time {
+    color: #222222;
+    font-size: 200px;
+}
