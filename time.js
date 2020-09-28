@@ -4,6 +4,17 @@
 
 // TODO:
 // - use Intl.DateTimeFormat for formatting dates/times instead of toLocaleTimeString
+// - add handler for navigating away from and back to page
+
+
+var refresh = function() {
+    var fifteenMinutes = 15 * 1000; // 15 x 1000 milliseconds
+    console.log('[DEBUG] Refreshing page in fifteen minutes ...')
+    setTimeout(function () {
+        window.location.reload(true);
+    }, fifteenMinutes);
+    return;
+}
 
 var setExpected = function(interval){
     var expected = Date.now() + interval;
@@ -32,6 +43,7 @@ var step = function(expected, interval){
     // if the time drift is too extreme
     if(drift > interval) {
         console.log('[ERROR] Drift exceeds Interval');
+        refresh();
         return;
     }
 
