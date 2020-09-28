@@ -18,19 +18,19 @@ var refresh = function() {
 
 var setExpected = function(interval){
     var expected = Date.now() + interval;
-    console.log('[DEBUG] Expected: ', expected);
+    //console.log('[DEBUG] Expected: ', expected);
     return expected;
 }
 
 var getDrift = function(expected){
     var drift = Date.now() - expected;
-    console.log('[DEBUG] Drift: ', drift);
+    //console.log('[DEBUG] Drift: ', drift);
     return drift;
 }
 
 var setMilliseconds = function(interval, drift){
     var milliseconds = Math.max(0, interval - drift);
-    console.log('[DEBUG] Milliseconds: ', milliseconds);
+    //console.log('[DEBUG] Milliseconds: ', milliseconds);
     return milliseconds;
 }
 
