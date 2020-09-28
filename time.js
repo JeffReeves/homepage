@@ -2,6 +2,9 @@
 *  author: Jeff Reeves
 */
 
+// TODO:
+// - use Intl.DateTimeFormat for formatting dates/times instead of toLocaleTimeString
+
 var setExpected = function(interval){
     var expected = Date.now() + interval;
     console.log('[DEBUG] Expected: ', expected);
@@ -35,8 +38,23 @@ var step = function(expected, interval){
     // set the next expected time
     expected = setExpected(interval);
     
-    // update the time
-    document.getElementById('time').innerHTML = new Date().toString();
+    // update the time, day, and date
+    document.getElementById('time').innerHTML = new Date().toLocaleTimeString("en-US", { 
+        hour12: false,
+        hour:   '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+
+    document.getElementById('day').innerHTML = new Date().toLocaleDateString("en-US", { 
+        weekday: 'long' 
+    });
+
+    document.getElementById('date').innerHTML = new Date().toLocaleDateString("en-US", { 
+        year:   'numeric', 
+        month:  'long', 
+        day:    'numeric',
+    });
 
     // recursively start the next step
     var milliseconds = setMilliseconds(interval, drift);
