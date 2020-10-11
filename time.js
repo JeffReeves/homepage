@@ -75,7 +75,7 @@ var step = function(expected, interval){
 
 
 // create an interval for the timer 
-var milliseconds = 1000;
+var milliseconds = 500;
 var interval     = milliseconds;
 var expected     = setExpected(interval);
 
